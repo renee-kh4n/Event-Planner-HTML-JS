@@ -6,34 +6,30 @@
     --primary: bg-sky-950;
 }
 
-.calendar{
-    @apply relative w-full h-full flex flex-col flex-wrap justify-between text-slate-700 rounded-s bg-slate-200;
-}
-
-.calendar::before, .calendar::after{
-    @apply absolute top-1/2 left-full w-3 h-[97%] bg-slate-200;
-    border-radius: 0 5px 5px 0;
-    content: "";
-}@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root{
-    --primary: bg-sky-950;
-}
-
 .left{
     @apply w-3/5 p-5;
 }
 
-/* .calendar{
-    @apply relative w-full h-full flex flex-col flex-wrap justify-between text-slate-700 rounded-s bg-slate-200;
-} */
+.body{
+    @apply bg-slate-100 h-screen flex items-center justify-center;
+}
 
-/* .calendar::before, .calendar::after{
-    @apply absolute top-1/2 left-full w-3 h-[100%] bg-slate-400;
+.div-container{
+    @apply relative w-[1200px] min-h-[95%] mx-auto my-0 p-1 text-white bg-sky-950 rounded-lg flex;
+}
+
+.calendar{
+    @apply relative w-full h-full flex flex-col flex-wrap justify-between text-slate-700 rounded-md bg-slate-200;
+} 
+
+.calendar::before, .calendar::after{
+    @apply absolute top-1/2 left-full w-3 h-[97%] bg-slate-400;
     border-radius: 0 5px 5px 0;
     content: "";
     transform: translateY(-50%);
-    transform: translateX(-50%);
-} */
+}
+
+.calendar::before{
+    @apply h-[94%] bg-slate-600;
+    left: calc(100% + 12px);
+}
