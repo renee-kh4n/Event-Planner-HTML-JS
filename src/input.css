@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root{
+    --primary: bg-sky-950;
+}
+
+.calendar{
+    @apply relative w-full h-full flex flex-col flex-wrap justify-between text-slate-700 rounded-s bg-slate-200;
+}
+
+.calendar::before, .calendar::after{
+    @apply absolute top-1/2 left-full w-3 h-[97%] bg-slate-200;
+    border-radius: 0 5px 5px 0;
+    content: "";
+}@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    --primary: bg-sky-950;
+}
+
+.calendar{
+    @apply relative w-full h-full flex flex-col flex-wrap justify-between text-slate-700 rounded-s bg-slate-200;
+}
+
+.calendar::before, .calendar::after{
+    @apply absolute top-1/2 left-full w-3 h-[97%] bg-slate-200;
+    border-radius: 0 5px 5px 0;
+    content: "";
+}
