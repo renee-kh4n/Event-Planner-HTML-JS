@@ -46,4 +46,8 @@
     @apply bg-sky-800;
 }
 
+.calendar .weekdays{
+    @apply w-full h-[100px] flex items-center justify-between px-5 text-base font-medium capitalize;
+
+}
 
