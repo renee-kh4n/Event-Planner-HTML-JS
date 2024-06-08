@@ -10,12 +10,12 @@
     @apply w-3/5 p-5;
 }
 
-.body{
+body{
     @apply bg-slate-100 h-screen flex items-center justify-center;
 }
 
 .div-container{
-    @apply relative w-[1200px] min-h-[95%] mx-auto my-0 p-1 text-white bg-sky-950 rounded-lg flex;
+    @apply relative w-[1200px] min-h-[90%] mx-auto my-0 p-1 text-white bg-sky-950 rounded-lg flex;
 }
 
 .calendar{
@@ -35,7 +35,7 @@
 }
 
 .month{
-    @apply  w-full h-[150px] flex items-center justify-between px-[50px] text-xl font-medium capitalize;
+    @apply  w-full h-[100px] flex items-center justify-between px-[50px] text-xl font-medium capitalize;
 }
 
 .calendar .month .prev, .calendar .month .next{
@@ -47,7 +47,18 @@
 }
 
 .calendar .weekdays{
-    @apply w-full h-[100px] flex items-center justify-between px-5 text-base font-medium capitalize;
+    @apply w-full h-[50px] flex items-center justify-between px-5 text-base font-medium capitalize;
 
 }
 
+.calendar .weekdays div{
+    @apply w-[14.28%] h-full flex items-center justify-center;
+}
+
+.calendar .days{
+    @apply w-full flex flex-wrap justify-between px-5 text-base font-medium mb-5;
+}
+
+.calendar .days .day{
+    @apply w-[14.28%] h-[90px] flex items-center justify-center cursor-pointer text-sky-800 border-solid border-white border;
+}

@@ -563,7 +563,7 @@ video {
   padding: 1.25rem;
 }
 
-.body {
+body {
   display: flex;
   height: 100vh;
   align-items: center;
@@ -579,7 +579,7 @@ video {
   margin-top: 0px;
   margin-bottom: 0px;
   display: flex;
-  min-height: 95%;
+  min-height: 90%;
   width: 1200px;
   border-radius: 0.5rem;
   --tw-bg-opacity: 1;
@@ -626,7 +626,7 @@ video {
 
 .month {
   display: flex;
-  height: 150px;
+  height: 100px;
   width: 100%;
   align-items: center;
   justify-content: space-between;
@@ -649,7 +649,7 @@ video {
 
 .calendar .weekdays {
   display: flex;
-  height: 100px;
+  height: 50px;
   width: 100%;
   align-items: center;
   justify-content: space-between;
@@ -661,3 +661,38 @@ video {
   text-transform: capitalize;
 }
 
+.calendar .weekdays div {
+  display: flex;
+  height: 100%;
+  width: 14.28%;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar .days {
+  margin-bottom: 1.25rem;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
+.calendar .days .day {
+  display: flex;
+  height: 90px;
+  width: 14.28%;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-width: 1px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(7 89 133 / var(--tw-text-opacity));
+}
