@@ -80,3 +80,21 @@ body{
     @apply absolute top-0 left-0 w-full h-full;
     box-shadow: 0 0 10px 2px @apply text-sky-800;
 }
+
+.calendar .days .today{
+    @apply text-3xl;
+}
+
+.calendar .days .event{
+    @apply relative;
+}
+
+.calendar .days .event::after{
+    content:"";
+    @apply absolute bottom-[10%] left-1/2 w-3/4 h-[6px] rounded-md bg-sky-800;
+    transform: translateX(-50%);
+}
+
+.calendar .event:hover::after{
+    @apply bg-white;
+}
