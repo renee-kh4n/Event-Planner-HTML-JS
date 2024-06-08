@@ -62,3 +62,21 @@ body{
 .calendar .days .day{
     @apply w-[14.28%] h-[90px] flex items-center justify-center cursor-pointer text-sky-800 border-solid border-white border;
 }
+
+.calendar .day:not(.prev-date, .next-date):hover{
+    @apply bg-sky-800 text-white;
+}
+
+.calendar .days .prev-date, .calendar .days .next-date{
+    @apply text-slate-400;
+}
+
+.calendar .days .active{
+    @apply relative text-3xl text-sky-100 bg-sky-800;
+}
+
+.calendar .days .active::before{
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full;
+    box-shadow: 0 0 10px 2px @apply text-sky-800;
+}
