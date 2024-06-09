@@ -59,6 +59,10 @@ function initCalendar(year, month, monthsArr){
 
     setDays(year, month, firstDay_day, lastDay_num, prevDays, nextDays);
 
+    
+    $('#prev').click(function() {prevMonth(month, year, monthsArr); });
+    
+    $('#next').click(function() {nextMonth(month, year, monthsArr); });
 
      
 }
@@ -70,8 +74,6 @@ function prevMonth(month, year, monthsArr){
         month = 11;
         year--;
     }
-    
-    console.log("prev month is clicked");
 
     initCalendar(year, month, monthsArr);
 }
@@ -83,18 +85,16 @@ function nextMonth(month, year, monthsArr){
         year++;
     }
 
-    console.log("next month is clicked");
-
     initCalendar(year, month, monthsArr);
 }
 
 
 $(document).ready(function() {
-    const calendar = $('.calendar'),
-    date = $('.date'),
-    daysContainer = $('.days'),
-    prev = $('.prev'),
-    next = $('next');
+    // const calendar = $('.calendar'),
+    // date = $('.date'),
+    // daysContainer = $('.days'),
+    // prev = $('.prev'),
+    // next = $('next');
     
     let today = new Date();
     let activeDay;
@@ -116,16 +116,7 @@ $(document).ready(function() {
         "December"
     ];
 
-    console.log("this works");
-
     initCalendar(year, month, monthsArr);
-
-    $('#prev').click(function() {prevMonth(month, year, monthsArr); });
-    
-    $('#next').click(function() {nextMonth(month, year, monthsArr); });
-
-    
-    console.log("end of file");
 
 
   });
