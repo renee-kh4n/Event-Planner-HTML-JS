@@ -13,6 +13,10 @@ function initCalendar(year, month, months){
      
 }
 
+function setDays(){
+    
+}
+
 $(document).ready(function() {
     const calendar = $('.calendar'),
     date = $('.date'),
