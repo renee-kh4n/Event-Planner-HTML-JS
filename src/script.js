@@ -1,5 +1,5 @@
-function setMonth(months, month, year){
-    $('.date').text(months[month] + " " + year);
+function setMonth(monthsArr, month, year){
+    $('.date').text(monthsArr[month] + " " + year);
 }
 
 function setDays(year, month, firstDay_day, lastDay_num, prevDays, nextDays){
@@ -32,7 +32,7 @@ function setDays(year, month, firstDay_day, lastDay_num, prevDays, nextDays){
 
 
 
-function initCalendar(year, month, months){
+function initCalendar(year, month, monthsArr){
     const firstDay_date = new Date(year, month, 1);
     const lastDay_date = new Date(year, month + 1, 0);
     const prevLastDay = new Date(year, month, 0);
@@ -54,15 +54,38 @@ function initCalendar(year, month, months){
     console.log(nextDays); //6
 
     console.log(lastDay_date.getDay()) // 0 == Sunday
-    
 
-
-    setMonth(months, month, year);
+    setMonth(monthsArr, month, year);
 
     setDays(year, month, firstDay_day, lastDay_num, prevDays, nextDays);
 
 
      
+}
+
+function prevMonth(month, year, monthsArr){
+    month--;
+
+    if(month<0){ // month 0 = January & month 11 = December
+        month = 11;
+        year--;
+    }
+    
+    console.log("prev month is clicked");
+
+    initCalendar(year, month, monthsArr);
+}
+
+function nextMonth(month, year, monthsArr){
+    month++;
+    if(month>11){ // month 0 = January & month 11 = December
+        month = 0;
+        year++;
+    }
+
+    console.log("next month is clicked");
+
+    initCalendar(year, month, monthsArr);
 }
 
 
@@ -78,7 +101,7 @@ $(document).ready(function() {
     let year = today.getFullYear();
     let month = today.getMonth();
 
-    const months = [
+    const monthsArr = [
         "January",
         "February",
         "March",
@@ -95,7 +118,14 @@ $(document).ready(function() {
 
     console.log("this works");
 
-    initCalendar(year, month, months);
+    initCalendar(year, month, monthsArr);
+
+    $('#prev').click(function() {prevMonth(month, year, monthsArr); });
+    
+    $('#next').click(function() {nextMonth(month, year, monthsArr); });
+
+    
+    console.log("end of file");
 
 
   });
