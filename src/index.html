@@ -9,6 +9,8 @@
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
         crossorigin="anonymous" 
         referrerpolicy="no-referrer" />
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <title>Calendar TODO Planner</title>
 </head>
 <body>
@@ -17,7 +19,7 @@
         <div class="calendar">
             <div class="month">
                 <i class="fa fa-angle-left prev"></i>
-                <div cass="date">month YYYY</div>
+                <div class="date">month YYYY</div>
                 <i class="fa fa-angle-right next"></i>
             </div>
             
@@ -31,8 +33,10 @@
               <div>sat</div>
             </div>
             <div class="days">
+
+              <!-- ADD DAYS USING JS -->
               
-              <div class="day prev-date">31</div>
+              <!-- <div class="day prev-date">31</div>
               <div class="day today active">1</div>
               <div class="day">2</div>
               <div class="day">3</div>
@@ -66,13 +70,13 @@
               <div class="day event">31</div>
               <div class="day next-date">1</div>
               <div class="day next-date">2</div>
-              <div class="day next-date">3</div>
+              <div class="day next-date">3</div> -->
               
             </div>
 
             <div class="goto-today">
               <div class="goto">
-                <input type="text" placeholder="mm/yy" class="date-input" />
+                <input type="text" placeholder="mm/yyyy" class="date-input" />
                 <button class="goto-btn">go</button>
               </div>
                 <button class="today-btn">today</button>
