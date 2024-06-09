@@ -104,7 +104,7 @@ body{
 }
 
 .calendar .goto-today .goto{
-    @apply flex items-center border overflow-hidden border-solid border-sky-800;
+    @apply flex items-center border overflow-hidden border-solid border-sky-800 rounded-md;
 }
 
 .calendar .goto-today .goto input{
@@ -112,12 +112,12 @@ body{
 }
 
 .calendar .goto-today button{
-    @apply py-1 px-2 border border-solid border-sky-800 cursor-pointer;
+    @apply py-1 px-2 border border-solid border-sky-800 cursor-pointer rounded-md;
 }
-.calendar .goto-today button:hover{
-    @apply bg-sky-800 text-white;
+.calendar .goto-today button:hover{ 
+    @apply bg-sky-800 text-white ;
 }
 
 .calendar .goto-today .goto button{
-    @apply border-none border-l border-l-sky-800 rounded-none;
+    @apply border-transparent border-solid border-l border-l-sky-800 rounded-none;
 }
