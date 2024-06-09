@@ -2,14 +2,16 @@ function setMonth(months, month, year){
     $('.date').text(months[month] + " " + year);
 }
 
-function setDays(year, month, firstDay_num, lastDay_num, prevDay){
+function setDays(year, month, firstDay_day, lastDay_num, prevDays, nextDays){
     let days = '';
 
-    for(let x = firstDay_num; x > 0; x--){
-        // console.log(days);
-        days += `<div class='day prev-date'>${prevDay - x + 1}</div>`;
+    //previous days
+    for(let x = firstDay_day; x > 0; x--){
+        
+        days += `<div class='day prev-date'>${prevDays - x + 1}</div>`;
     }
 
+    //days of the month
     for(let i = 1; i <= lastDay_num; i++){
         if( i === new Date().getDate() && year === new Date().getFullYear() && month === new Date().getMonth()){
             days += `<div class="day active today">${i}</div>`;
@@ -17,12 +19,15 @@ function setDays(year, month, firstDay_num, lastDay_num, prevDay){
             days += `<div class="day">${i}</div>`;
         }
 
-        // console.log(days);
+     }
 
+     //next days
+     for(let x = 1; x <= nextDays; x++){
+        days += `<div class='day next-date'>${x}</div>`;
     }
 
     $('.days').html(days);
-    console.log(days);
+    // console.log(prevLastDay);
 }
 
 
@@ -31,17 +36,30 @@ function initCalendar(year, month, months){
     const firstDay_date = new Date(year, month, 1);
     const lastDay_date = new Date(year, month + 1, 0);
     const prevLastDay = new Date(year, month, 0);
-    const prevDay = prevLastDay.getDate();
+    const prevDays = prevLastDay.getDate();
     const lastDay_num = lastDay_date.getDate();
-    const firstDay_num = firstDay_date.getDate();
-    const nextDays = 7 - prevLastDay.getDay() - 1;
+    const firstDay_day = firstDay_date.getDay();
+    const nextDays = 7 - lastDay_date.getDay() - 1; 
+
+    
+    console.log(prevLastDay); //Fri May 31 2024 00:00:00 GMT+0800 (Philippine Standard Time)
 
     console.log(firstDay_date); //Sat Jun 01 2024 00:00:00 GMT+0800 (Philippine Standard Time)
-    console.log(firstDay_num); // 1
+    console.log(firstDay_day); // 6 == Saturday
+
+    console.log(lastDay_date); //Sun Jun 30 2024 00:00:00 GMT+0800 (Philippine Standard Time)
+
+    console.log(lastDay_num); //30
+
+    console.log(nextDays); //6
+
+    console.log(lastDay_date.getDay()) // 0 == Sunday
+    
+
 
     setMonth(months, month, year);
 
-    setDays(year, month, firstDay_num, lastDay_num, prevDay);
+    setDays(year, month, firstDay_day, lastDay_num, prevDays, nextDays);
 
 
      
