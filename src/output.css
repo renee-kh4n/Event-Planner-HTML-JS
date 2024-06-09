@@ -699,7 +699,7 @@ body {
 
 .calendar .day:not(.prev-date, .next-date):hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(7 89 133 / var(--tw-bg-opacity));
+  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
@@ -754,4 +754,68 @@ body {
 .calendar .event:hover::after {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.calendar .goto-today {
+  margin-bottom: 1.25rem;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(7 89 133 / var(--tw-text-opacity));
+}
+
+.calendar .goto-today .goto {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-width: 1px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(7 89 133 / var(--tw-border-opacity));
+}
+
+.calendar .goto-today .goto input {
+  height: 30px;
+  width: 100%;
+  border-radius: 0.25rem;
+  border-style: none;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(7 89 133 / var(--tw-text-opacity));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.calendar .goto-today button {
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(7 89 133 / var(--tw-border-opacity));
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.calendar .goto-today button:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(7 89 133 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.calendar .goto-today .goto button {
+  border-radius: 0px;
+  border-left-width: 1px;
+  border-style: none;
+  --tw-border-opacity: 1;
+  border-left-color: rgb(7 89 133 / var(--tw-border-opacity));
 }

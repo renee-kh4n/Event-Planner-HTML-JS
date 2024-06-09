@@ -64,7 +64,7 @@ body{
 }
 
 .calendar .day:not(.prev-date, .next-date):hover{
-    @apply bg-sky-800 text-white;
+    @apply bg-slate-400 text-white;
 }
 
 .calendar .days .prev-date, .calendar .days .next-date{
@@ -97,4 +97,27 @@ body{
 
 .calendar .event:hover::after{
     @apply bg-white;
+}
+
+.calendar .goto-today{
+    @apply w-full h-[50px] flex items-center justify-between gap-1 px-5 mb-5 text-sky-800;
+}
+
+.calendar .goto-today .goto{
+    @apply flex items-center border overflow-hidden border-solid border-sky-800;
+}
+
+.calendar .goto-today .goto input{
+    @apply w-full h-[30px] outline-none border-none rounded px-5 text-sky-800;
+}
+
+.calendar .goto-today button{
+    @apply py-1 px-2 border border-solid border-sky-800 cursor-pointer;
+}
+.calendar .goto-today button:hover{
+    @apply bg-sky-800 text-white;
+}
+
+.calendar .goto-today .goto button{
+    @apply border-none border-l border-l-sky-800 rounded-none;
 }
