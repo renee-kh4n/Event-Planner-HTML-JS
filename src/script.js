@@ -103,6 +103,7 @@ function gotoDate(monthsArr){
         const input = $('#date-input').val();
         if (!/^\d{2}\/\d{4}$/.test(input)) {
             alert("Invalid Input !!!");
+            // [Violation] 'click' handler took 1605ms
             
         }else{
 
