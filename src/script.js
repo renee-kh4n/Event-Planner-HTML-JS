@@ -64,6 +64,8 @@ function initCalendar(year, month, monthsArr){
     
     $('#next').click(function() {nextMonth(month, year, monthsArr); });
 
+    gotoDate(monthsArr);
+
      
 }
 
@@ -88,14 +90,42 @@ function nextMonth(month, year, monthsArr){
     initCalendar(year, month, monthsArr);
 }
 
+function gotoDate(monthsArr){
+    $("#today-btn").click(function(){
+        let today = new Date();
+        let month = today.getMonth();
+        let year = today.getFullYear();
+        initCalendar(year, month, monthsArr);
+    });
+
+    $("#goto-btn").click(function(){
+        let input = $('#date-input').val();
+        let month = String(input).substring(0,2);
+        let year = String(input).substring(3,7);
+        
+
+        if(input.length !== 7 || isNaN(month) || isNaN(year)){
+            alert("Invalid Input !!!");
+        } else{
+            month = Number(month);
+            year = Number(year);
+    
+            if(month<1 || month>12){
+                alert("Invalid date");
+            }else{
+                month--;
+                initCalendar(year, month, monthsArr);
+            }    
+
+        }
+
+
+    });
+}
+
 
 $(document).ready(function() {
-    // const calendar = $('.calendar'),
-    // date = $('.date'),
-    // daysContainer = $('.days'),
-    // prev = $('.prev'),
-    // next = $('next');
-    
+
     let today = new Date();
     let activeDay;
     let year = today.getFullYear();
@@ -117,6 +147,8 @@ $(document).ready(function() {
     ];
 
     initCalendar(year, month, monthsArr);
+
+
 
 
   });
