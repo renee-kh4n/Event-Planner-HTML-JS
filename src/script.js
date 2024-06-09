@@ -99,17 +99,15 @@ function gotoDate(monthsArr){
     });
 
     $("#goto-btn").click(function(){
-        let input = $('#date-input').val();
-        let month = String(input).substring(0,2);
-        let year = String(input).substring(3,7);
-        
 
-        if(input.length !== 7 || isNaN(month) || isNaN(year)){
+        const input = $('#date-input').val();
+        if (!/^\d{2}\/\d{4}$/.test(input)) {
             alert("Invalid Input !!!");
-        } else{
-            month = Number(month);
-            year = Number(year);
-    
+            
+        }else{
+
+            let [month, year] = input.split('/').map(Number);
+
             if(month<1 || month>12){
                 alert("Invalid date");
             }else{
@@ -118,8 +116,7 @@ function gotoDate(monthsArr){
             }    
 
         }
-
-
+                
     });
 }
 
