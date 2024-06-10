@@ -98,26 +98,27 @@ function gotoDate(monthsArr){
         initCalendar(year, month, monthsArr);
     });
 
-    $("#goto-btn").click(function(){
-
-        const input = $('#date-input').val();
-        if (!/^\d{2}\/\d{4}$/.test(input)) {
-            alert("Invalid Input !!!");
-            // [Violation] 'click' handler took 1605ms
-            
-        }else{
-
-            let [month, year] = input.split('/').map(Number);
-
-            if(month<1 || month>12){
-                alert("Invalid date");
-            }else{
-                month--;
-                initCalendar(year, month, monthsArr);
-            }    
-
+    $('#date-input').on("input", function (event) {
+        this.value = this.value.replace(/[^0-9\.]/g,'');
+        if (this.value.length >= 2) {
+            this.value = this.value.substring(0, 2) + '/' + this.value.substring(2);
+    
         }
-                
+        
+        if(this.value.length > 7){
+            this.value = this.value.slice(0,7);
+        }
+
+        //how to allow backspace?
+
+        
+        // console.log($('#date-input').val());
+     });
+
+    $("#goto-btn").click(function(){
+        if($('#date-input').val().length < 7){
+            alert("Invalid input!!! \nPlease enter in mm/yyyy format.")
+        }         
     });
 }
 
