@@ -117,8 +117,8 @@ function gotoDate(monthsArr){
         if($('#date-input').val().length < 7){
             alert("Invalid input!!! \nPlease enter in mm/yyyy format.")
         }else{
-            let month = $('#date-input').val().substring(0,2);
-            let year = $('#date-input').val().substring(3,7);
+            let month = Number($('#date-input').val().substring(0,2)) - 1;
+            let year = Number($('#date-input').val().substring(3,7));
 
             initCalendar(year, month, monthsArr);
         }        
