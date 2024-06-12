@@ -109,14 +109,24 @@ function gotoDate(monthsArr){
             this.value = this.value.slice(0,7);
         }
 
-        //how to allow backspace?
+     });
+
+     $('#date-input').on("keydown", function(event){
+        //how to allow backspace when length == 2 ?
+        if (event.key === "Backspace" && this.value.length === 3){
+            this.value = this.value.substring(0,2);
+        }
+
 
      });
 
     $("#goto-btn").click(function(){
         if($('#date-input').val().length < 7){
             alert("Invalid input!!! \nPlease enter in mm/yyyy format.")
-        }else{
+        }else if(Number($('#date-input').val().substring(0,2)) < 1 || Number($('#date-input').val().substring(0,2)) > 12){
+            alert("Invalid month!!! \nPlease enter a number from 1-12.")
+        }
+        else{
             let month = Number($('#date-input').val().substring(0,2)) - 1;
             let year = Number($('#date-input').val().substring(3,7));
 
