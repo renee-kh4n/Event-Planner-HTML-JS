@@ -121,3 +121,7 @@ body{
 .calendar .goto-today .goto button{
     @apply border-transparent border-solid border-l border-l-sky-800 rounded-none;
 }
+
+.div-container .right{
+    @apply relative w-2/5 min-h-full py-5;
+}

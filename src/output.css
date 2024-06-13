@@ -823,3 +823,11 @@ body {
   --tw-border-opacity: 1;
   border-left-color: rgb(7 89 133 / var(--tw-border-opacity));
 }
+
+.div-container .right {
+  position: relative;
+  min-height: 100%;
+  width: 40%;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
