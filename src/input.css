@@ -125,3 +125,52 @@ body{
 .div-container .right{
     @apply relative w-2/5 min-h-full py-5;
 }
+
+.right .today-date{
+    @apply w-full h-12 flex flex-wrap gap-[10px] items-center justify-between px-10 pl-[70px] mt-12 mb-5 capitalize;
+}
+
+.today-date .event-date{
+    @apply text-base font-normal text-white;
+}
+
+.events{
+    @apply w-full h-full max-h-[600px] overflow-x-hidden overflow-y-auto flex flex-col p-1;
+}
+
+.events .event{
+    @apply relative w-[95%] min-h-[70px] flex flex-col items-center justify-center gap-[5px] px-5 cursor-pointer bg-gradient-to-r from-sky-900 to-transparent;
+}
+
+.events .event:nth-child(even){
+    @apply bg-transparent;
+}
+
+.events .event:hover{
+    @apply bg-gradient-to-r via-indigo-400  to-transparent;
+}
+
+.events .event .title{
+    @apply flex items-center pointer-events-none;
+}
+  
+.events .event .title .event-title{
+    @apply text-sm font-normal ml-5;
+}
+
+.events .event .title i{
+    @apply text-sky-950 text-sm;
+}
+
+.events .event .title:hover i,
+.events .event .title:hover .event-time{
+    @apply text-white;
+}
+
+.events .event .event-time{
+    @apply text-sm font-normal text-slate-500 ml-5 pointer-events-none;
+}
+
+.event::after{
+
+}

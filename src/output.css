@@ -831,3 +831,107 @@ body {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
 }
+
+.right .today-date {
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  height: 3rem;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  padding-left: 70px;
+  text-transform: capitalize;
+}
+
+.today-date .event-date {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.events {
+  display: flex;
+  height: 100%;
+  max-height: 600px;
+  width: 100%;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0.25rem;
+}
+
+.events .event {
+  position: relative;
+  display: flex;
+  min-height: 70px;
+  width: 95%;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  --tw-gradient-from: #0c4a6e var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(12 74 110 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  --tw-gradient-to: transparent var(--tw-gradient-to-position);
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.events .event:nth-child(even) {
+  background-color: transparent;
+}
+
+.events .event:hover {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  --tw-gradient-to: rgb(129 140 248 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #818cf8 var(--tw-gradient-via-position), var(--tw-gradient-to);
+  --tw-gradient-to: transparent var(--tw-gradient-to-position);
+}
+
+.events .event .title {
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.events .event .title .event-title {
+  margin-left: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+
+.events .event .title i {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(8 47 73 / var(--tw-text-opacity));
+}
+
+.events .event .title:hover i,
+.events .event .title:hover .event-time {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.events .event .event-time {
+  pointer-events: none;
+  margin-left: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  --tw-text-opacity: 1;
+  color: rgb(100 116 139 / var(--tw-text-opacity));
+}
+
+.event::after{
+}
