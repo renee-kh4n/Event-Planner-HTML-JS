@@ -162,9 +162,9 @@ body{
     @apply text-sky-950 text-sm;
 }
 
-.events .event .title:hover i,
-.events .event .title:hover .event-time{
-    @apply text-white;
+.events .event:hover .title i,
+.events .event:hover .event-time{
+    @apply text-emerald-50;
 }
 
 .events .event .event-time{
@@ -172,5 +172,12 @@ body{
 }
 
 .event::after{
+    content: "✔";
+    @apply absolute top-[50%] right-0 text-5xl items-center justify-center opacity-30
+    text-sky-950 translate-y-1/2;
 
+}
+
+.event:hover::after{
+    @apply flex;
 }
