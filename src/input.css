@@ -11,7 +11,7 @@
 }
 
 body{
-    @apply bg-slate-100 h-screen flex items-center justify-center;
+    @apply bg-slate-100 h-screen flex items-center justify-center overflow-y-hidden;
 }
 
 .div-container{
@@ -135,7 +135,7 @@ body{
 }
 
 .events{
-    @apply w-full h-full max-h-[600px] overflow-x-hidden overflow-y-auto flex flex-col p-1;
+    @apply w-full h-full max-h-[400px] overflow-x-hidden overflow-y-hidden flex flex-col p-1;
 }
 
 .events .event{
