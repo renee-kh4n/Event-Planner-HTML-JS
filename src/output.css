@@ -1048,17 +1048,17 @@ body {
   color: rgb(51 65 85 / var(--tw-text-opacity));
 }
 
-.add-event-body .addevent-input input:focus {
+.add-event-body .add-event-input input:focus {
   --tw-border-opacity: 1;
   border-color: rgb(8 47 73 / var(--tw-border-opacity));
 }
 
-.add-event-body .addevent-input input:focus::-moz-placeholder {
+.add-event-body .add-event-input input:focus::-moz-placeholder {
   --tw-border-opacity: 1;
   border-color: rgb(8 47 73 / var(--tw-border-opacity));
 }
 
-.add-event-body .addevent-input input:focus::placeholder {
+.add-event-body .add-event-input input:focus::placeholder {
   --tw-border-opacity: 1;
   border-color: rgb(8 47 73 / var(--tw-border-opacity));
 }
