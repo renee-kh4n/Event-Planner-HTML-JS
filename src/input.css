@@ -219,3 +219,15 @@ body{
 .add-event-body .add-event-input input{
     @apply w-full h-full outline-none border-none px-[10px] text-base font-normal text-sky-950 border-b border-b-white;
 }
+
+.add-event-body .add-event-input input::placeholder{
+    @apply text-slate-700; 
+}
+
+.add-event-body .add-event-input input:focus{
+    @apply border-sky-950;
+}
+
+.add-event-body .add-event-input input:focus::placeholder{
+    @apply border-sky-950;
+}
