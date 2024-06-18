@@ -245,4 +245,18 @@ body{
 
 }
 
+.add-event{
+    @apply absolute bottom-[30px] right-[30px] w-[40px] h-[40px] flex items-center justify-center text-base text-slate-500 border-solid border border-slate-500 bg-transparent cursor-pointer; 
+
+}
+
+.add-event:hover{
+    @apply bg-sky-200;
+
+}
+
+.add-event i{
+    @apply pointer-events-none;
+}
+
 /* timestamp: 15:42 */
