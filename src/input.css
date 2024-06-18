@@ -181,3 +181,7 @@ body{
 .event:hover::after{
     @apply flex;
 }
+
+.add-event-wrapper{
+    
+}
