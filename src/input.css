@@ -239,3 +239,8 @@ body{
 .add-event-btn{
     @apply h-10 text-base font-medium outline-none  text-white bg-sky-950 rounded-md cursor-pointer px-2 py-1 border border-solid border-sky-950 ;
 }
+
+.add-event-btn:hover{
+    @apply text-sky-950 bg-transparent;
+
+}

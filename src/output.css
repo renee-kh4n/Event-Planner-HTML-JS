@@ -1093,3 +1093,9 @@ body {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
+
+.add-event-btn:hover {
+  background-color: transparent;
+  --tw-text-opacity: 1;
+  color: rgb(8 47 73 / var(--tw-text-opacity));
+}
