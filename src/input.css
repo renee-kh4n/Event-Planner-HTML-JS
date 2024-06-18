@@ -221,7 +221,7 @@ body{
 }
 
 .add-event-body .add-event-input input::placeholder{
-    @apply text-slate-700; 
+    @apply text-slate-500; 
 }
 
 .add-event-body .add-event-input input:focus{
@@ -229,5 +229,13 @@ body{
 }
 
 .add-event-body .add-event-input input:focus::placeholder{
-    @apply border-sky-950;
+    @apply text-sky-950;
+}
+
+.add-event-footer{
+    @apply flex items-center justify-center p-4;
+}
+
+.add-event-btn{
+    @apply h-10 text-base font-medium outline-none  text-white bg-sky-950 rounded-md cursor-pointer px-2 py-1 border border-solid border-sky-950 ;
 }
