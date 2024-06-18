@@ -183,9 +183,7 @@ body{
 }
 
 .add-event-wrapper{
-    @apply absolute bottom-[100px] left-1/2 w-[90%] max-h-0 overflow-hidden rounded-md bg-white;
-    transform: translateX(-50%);
-    transition: max-height 0.5s;
+   
 }
 
 .add-event-wrapper.active{
@@ -194,4 +192,8 @@ body{
 
 .add-event-header{
     @apply w-full h-12 flex items-center justify-between px-5 bg-slate-600 border-b border-b-white border;
+}
+
+.add-event-header .close{
+    
 }
