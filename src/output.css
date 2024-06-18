@@ -985,5 +985,16 @@ body {
   padding-right: 1.25rem;
 }
 
-.add-event-header .close{
+.add-event-header .close {
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.add-event-header .close:hover {
+  --tw-text-opacity: 1;
+  color: rgb(8 47 73 / var(--tw-text-opacity));
+}
+
+.add-event-header .title{
 }

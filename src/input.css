@@ -197,5 +197,13 @@ body{
 }
 
 .add-event-header .close{
+    @apply text-2xl cursor-pointer;
+}
 
+.add-event-header .close:hover{
+    @apply text-sky-950;
+}
+
+.add-event-header .title{
+    
 }
