@@ -246,7 +246,7 @@ body{
 }
 
 .add-event{
-    @apply absolute bottom-[30px] right-[30px] w-[40px] h-[40px] flex items-center justify-center text-base text-slate-500 border-solid border border-slate-500 bg-transparent cursor-pointer; 
+    @apply absolute bottom-[30px] right-[30px] w-[40px] h-[40px] flex items-center justify-center text-base text-slate-500 border-solid border border-slate-500 bg-transparent cursor-pointer rounded-xl; 
 
 }
 
