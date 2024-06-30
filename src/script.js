@@ -191,6 +191,25 @@ function addEvent(){
 
 }
 
+const eventsArr = [
+    {
+        day: 8,
+        month: 1,
+        year: 2024,
+        events:[
+            {
+                title: "My Birthday",
+                time: "12:00 AM",
+            },
+            {
+                title: "Event 2",
+                time: "11:00 AM",
+            }
+
+        ],
+    },
+];
+
 $(document).ready(function() {
 
     let today = new Date();
