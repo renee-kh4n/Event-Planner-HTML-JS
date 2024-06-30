@@ -98,6 +98,7 @@ function gotoDate(monthsArr){
         initCalendar(year, month, monthsArr);
     });
 
+    //this.value is JavaScript and not JQUery
     $('#date-input').on("input", function (event) {
         this.value = this.value.replace(/[^0-9\.]/g,'');
         if (this.value.length >= 2) {
@@ -135,15 +136,56 @@ function gotoDate(monthsArr){
     });
 }
 
+//add event button
 $(".add-event").click(function(){
     $(".add-event-wrapper").toggleClass("active");
-})
+});
 
 $(".close").click(function(){
     $(".add-event-wrapper").removeClass("active");
+});
+
+// limit event title to 50 characters
+$(".event-name").on("input", function (event) {
+    $(".event-name").val($(".event-name").val().slice(0, 50));
+});
+
+// event time from input restrictions
+$(".event-time-from").on("input", function(event){
+    
+    this.value = this.value.replace(/[^0-9\.]/g,'');
+    if(this.value.length >= 2){
+        this.value = this.value.substring(0, 2) + ':' + this.value.substring(2);
+    }
+    if(this.value.length > 5){
+        this.value = this.value.slice(0,5);
+    }
 })
+$(".event-time-from").on("keydown", function(event){
+    //how to allow backspace when length == 2 ?
+    if (event.key === "Backspace" && this.value.length === 3){
+        this.value = this.value.substring(0,2);
+    }
+ });
 
 
+ // event time to input restrictions
+$(".event-time-to").on("input", function(event){
+    
+    this.value = this.value.replace(/[^0-9\.]/g,'');
+    if(this.value.length >= 2){
+        this.value = this.value.substring(0, 2) + ':' + this.value.substring(2);
+    }
+    if(this.value.length > 5){
+        this.value = this.value.slice(0,5);
+    }
+})
+$(".event-time-to").on("keydown", function(event){
+    //how to allow backspace when length == 2 ?
+    if (event.key === "Backspace" && this.value.length === 3){
+        this.value = this.value.substring(0,2);
+    }
+ });
 
 $(document).ready(function() {
 
