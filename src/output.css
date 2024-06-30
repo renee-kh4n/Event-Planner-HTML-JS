@@ -934,7 +934,7 @@ body {
   color: rgb(100 116 139 / var(--tw-text-opacity));
 }
 
-.event::after{
+.events .event::after{
   content: "✔";
   position: absolute;
   top: 50%;
@@ -950,7 +950,7 @@ body {
   opacity: 0.3;
 }
 
-.event:hover::after {
+.events .event:hover::after {
   display: flex;
 }
 

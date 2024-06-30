@@ -171,14 +171,14 @@ body{
     @apply text-sm font-normal text-slate-500 ml-5 pointer-events-none;
 }
 
-.event::after{
+.events .event::after{
     content: "✔";
     @apply absolute top-[50%] right-0 text-5xl items-center justify-center opacity-30
     text-sky-950 translate-y-1/2;
 
 }
 
-.event:hover::after{
+.events .event:hover::after{
     @apply flex;
 }
 

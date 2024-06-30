@@ -16,6 +16,18 @@ const eventsArr = [
 
         ],
     },
+    {
+        day: 31,
+        month: 1,
+        year: 2024,
+        events:[
+            {
+                title: "Papa's Birthday",
+                time: "12:00 AM",
+            },
+
+        ],
+    },
 ];
 
 function viewEvents(day, month, year){
