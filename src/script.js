@@ -1,4 +1,18 @@
 
+const monthsArr = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+];
 const eventsArr = [
     {
         day: 8,
@@ -58,7 +72,7 @@ function viewEvents(day, month, year){
 //     })
 
 
-function clickDay(month, year, monthsArr){
+function clickDay(month, year){
     $(document).on("click", ".day", function(){
         
         $(".day.active").removeClass("active");
@@ -71,7 +85,7 @@ function clickDay(month, year, monthsArr){
     $(document).on("click", ".prev-date", function(){
         
         activeDay = $(this).text();
-        prevMonth(month, year, monthsArr);
+        prevMonth(month, year);
         $(".day").each(function(){
             if($(this).text() == activeDay){
                 $(".day.active").removeClass("active");
@@ -88,8 +102,8 @@ function clickDay(month, year, monthsArr){
     $(document).on("click", ".next-date", function(){
         
         activeDay = $(this).text();
-        
-        nextMonth(month, year, monthsArr);
+
+        nextMonth(month, year);
         
         $(".day").each(function(){
             if($(this).text() == activeDay){
@@ -104,7 +118,7 @@ function clickDay(month, year, monthsArr){
 }
 
 
-function setMonth(monthsArr, month, year){
+function setMonth(month, year){
     $('.date').text(monthsArr[month] + " " + year);
 }
 
@@ -151,7 +165,7 @@ function setDays(year, month, firstDay_day, lastDay_num, prevDays, nextDays){
 
 
 
-function initCalendar(year, month, monthsArr){
+function initCalendar(year, month){
     const firstDay_date = new Date(year, month, 1);
     const lastDay_date = new Date(year, month + 1, 0);
     const prevLastDay = new Date(year, month, 0);
@@ -174,23 +188,23 @@ function initCalendar(year, month, monthsArr){
 
     console.log(lastDay_date.getDay()) // 0 == Sunday
 
-    setMonth(monthsArr, month, year);
+    setMonth(month, year);
 
     setDays(year, month, firstDay_day, lastDay_num, prevDays, nextDays);
 
     
-    $('#prev').click(function() {prevMonth(month, year, monthsArr); });
+    $('#prev').click(function() {prevMonth(month, year); });
     
-    $('#next').click(function() {nextMonth(month, year, monthsArr); });
+    $('#next').click(function() {nextMonth(month, year); });
 
-    clickDay(month, year, monthsArr);
+    clickDay(month, year);
 
-    gotoDate(monthsArr);
+    gotoDate();
 
      
 }
 
-function prevMonth(month, year, monthsArr){
+function prevMonth(month, year){
     month--;
 
     if(month<0){ // month 0 = January & month 11 = December
@@ -198,25 +212,25 @@ function prevMonth(month, year, monthsArr){
         year--;
     }
 
-    initCalendar(year, month, monthsArr);
+    initCalendar(year, month);
 }
 
-function nextMonth(month, year, monthsArr){
+function nextMonth(month, year){
     month++;
     if(month>11){ // month 0 = January & month 11 = December
         month = 0;
         year++;
     }
 
-    initCalendar(year, month, monthsArr);
+    initCalendar(year, month);
 }
 
-function gotoDate(monthsArr){
+function gotoDate(){
     $("#today-btn").click(function(){
         let today = new Date();
         let month = today.getMonth();
         let year = today.getFullYear();
-        initCalendar(year, month, monthsArr);
+        initCalendar(year, month);
     });
 
     //this.value is JavaScript and not JQUery
@@ -252,7 +266,7 @@ function gotoDate(monthsArr){
             let month = Number($('#date-input').val().substring(0,2)) - 1;
             let year = Number($('#date-input').val().substring(3,7));
 
-            initCalendar(year, month, monthsArr);
+            initCalendar(year, month);
         }        
     });
 }
@@ -320,24 +334,9 @@ $(document).ready(function() {
     let year = today.getFullYear();
     let month = today.getMonth();
 
-    const monthsArr = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-    ];
-
     addEvent();
     // dayListener();
-    initCalendar(year, month, monthsArr);
+    initCalendar(year, month);
 
   });
 
