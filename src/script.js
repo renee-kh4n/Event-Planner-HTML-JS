@@ -46,6 +46,16 @@ function viewEvents(day, month, year){
     return event;
 }
 
+function dayListener(){
+    $(".day").each(function(){
+        this.click(function(){
+            activeDay = Number(this.text());
+            console.log(activeDay);
+        })
+
+        this.removeClass("active");
+    })
+}
 
 function setMonth(monthsArr, month, year){
     $('.date').text(monthsArr[month] + " " + year);
@@ -277,6 +287,7 @@ $(document).ready(function() {
     ];
 
     addEvent();
+    dayListener();
     initCalendar(year, month, monthsArr);
 
   });
