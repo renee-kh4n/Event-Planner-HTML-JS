@@ -241,7 +241,7 @@ body{
 }
 
 .add-event-btn:hover{
-    @apply text-sky-950 bg-transparent;
+    @apply text-sky-950 bg-slate-200;
 
 }
 

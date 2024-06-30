@@ -1095,7 +1095,8 @@ body {
 }
 
 .add-event-btn:hover {
-  background-color: transparent;
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(8 47 73 / var(--tw-text-opacity));
 }
