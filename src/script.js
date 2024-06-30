@@ -1,3 +1,40 @@
+
+const eventsArr = [
+    {
+        day: 8,
+        month: 1,
+        year: 2024,
+        events:[
+            {
+                title: "My Birthday",
+                time: "12:00 AM",
+            },
+            {
+                title: "Event 2",
+                time: "11:00 AM",
+            }
+
+        ],
+    },
+];
+
+function viewEvents(day, month, year){
+    let event = false;
+    eventsArr.forEach((eventObj) => {
+        if(
+            eventObj.day === day &&
+            (eventObj.month - 1) === month &&
+            eventObj.year === year
+        ){
+            event = true;
+        }
+
+    });
+
+    return event;
+}
+
+
 function setMonth(monthsArr, month, year){
     $('.date').text(monthsArr[month] + " " + year);
 }
@@ -13,10 +50,23 @@ function setDays(year, month, firstDay_day, lastDay_num, prevDays, nextDays){
 
     //days of the month
     for(let i = 1; i <= lastDay_num; i++){
+
+        // view events
+        let eventFound = viewEvents(i, month, year);
+        
         if( i === new Date().getDate() && year === new Date().getFullYear() && month === new Date().getMonth()){
-            days += `<div class="day active today">${i}</div>`;
+            if(eventFound){
+                days += `<div class="day active today event">${i}</div>`;
+            }else{
+                days += `<div class="day active today">${i}</div>`;
+            }
         } else{
-            days += `<div class="day">${i}</div>`;
+            if(eventFound){
+                days += `<div class="day event">${i}</div>`;
+            }else{
+                days += `<div class="day">${i}</div>`;
+            }
+           
         }
 
      }
@@ -191,24 +241,6 @@ function addEvent(){
 
 }
 
-const eventsArr = [
-    {
-        day: 8,
-        month: 1,
-        year: 2024,
-        events:[
-            {
-                title: "My Birthday",
-                time: "12:00 AM",
-            },
-            {
-                title: "Event 2",
-                time: "11:00 AM",
-            }
-
-        ],
-    },
-];
 
 $(document).ready(function() {
 
