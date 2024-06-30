@@ -183,9 +183,9 @@ body{
 }
 
 .add-event-wrapper{
-   @apply absolute bottom-24 left-1/2 w-[90%] rounded-md bg-white overflow-hidden;
+   @apply absolute bottom-24 left-1/2 w-[90%] max-h-0 rounded-md bg-white overflow-hidden;
    transform: translateX(-50%);
-   transition: max-height 0.5s;
+   transition: max-height 0.5s ease;
 }
 
 .add-event-wrapper.active{
