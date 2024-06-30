@@ -135,6 +135,15 @@ function gotoDate(monthsArr){
     });
 }
 
+$(".add-event").click(function(){
+    $(".add-event-wrapper").toggleClass("active");
+})
+
+$(".close").click(function(){
+    $(".add-event-wrapper").removeClass("active");
+})
+
+
 
 $(document).ready(function() {
 
@@ -161,3 +170,5 @@ $(document).ready(function() {
     initCalendar(year, month, monthsArr);
 
   });
+
+  
