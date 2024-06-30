@@ -67,7 +67,7 @@ function clickDay(month, year){
         $(".day.active").removeClass("active");
     
         $(this).toggleClass("active");
-        // console.log("Active day:", activeDay); works
+        
     });
     
     
@@ -149,7 +149,7 @@ function setDays(year, month, firstDay_day, lastDay_num, prevDays, nextDays){
     }
 
     $('.days').html(days);
-    // console.log(prevLastDay);
+    
 }
 
 
@@ -162,20 +162,6 @@ function initCalendar(year, month){
     const lastDay_num = lastDay_date.getDate();
     const firstDay_day = firstDay_date.getDay();
     const nextDays = 7 - lastDay_date.getDay() - 1; 
-
-    
-    console.log(prevLastDay); //Fri May 31 2024 00:00:00 GMT+0800 (Philippine Standard Time)
-
-    console.log(firstDay_date); //Sat Jun 01 2024 00:00:00 GMT+0800 (Philippine Standard Time)
-    console.log(firstDay_day); // 6 == Saturday
-
-    console.log(lastDay_date); //Sun Jun 30 2024 00:00:00 GMT+0800 (Philippine Standard Time)
-
-    console.log(lastDay_num); //30
-
-    console.log(nextDays); //6
-
-    console.log(lastDay_date.getDay()) // 0 == Sunday
 
     setMonth(month, year);
 
