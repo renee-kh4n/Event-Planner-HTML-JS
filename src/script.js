@@ -50,7 +50,7 @@ function viewEvents(day, month, year){
 // doesn't work for dynmaically added elements
 //     $(".day").each(function(){
 //         $(this).on("click", function(){
-//             activeDay = Number($(this).text());
+//             
 //             console.log(activeDay);
 //         })
 
@@ -58,24 +58,51 @@ function viewEvents(day, month, year){
 //     })
 
 
-$(document).on("click", ".day", function(){
-    activeDay = Number($(this).text());
-    $(".day.active").removeClass("active");
+function clickDay(month, year, monthsArr){
+    $(document).on("click", ".day", function(){
+        
+        $(".day.active").removeClass("active");
+    
+        $(this).toggleClass("active");
+        // console.log("Active day:", activeDay); works
+    });
+    
+    
+    $(document).on("click", ".prev-date", function(){
+        
+        activeDay = $(this).text();
+        prevMonth(month, year, monthsArr);
+        $(".day").each(function(){
+            if($(this).text() == activeDay){
+                $(".day.active").removeClass("active");
+    
+                $(this).toggleClass("active");
 
-    $(this).toggleClass("active");
-    // console.log("Active day:", activeDay); works
-});
+            }
+        });
+            
+        
+    });
 
 
-$(document).on("click", ".prev-date", function(){
-    $()
-    activeDay = Number($(this).text());
+    $(document).on("click", ".next-date", function(){
+        
+        activeDay = $(this).text();
+        
+        nextMonth(month, year, monthsArr);
+        
+        $(".day").each(function(){
+            if($(this).text() == activeDay){
+                $(".day.active").removeClass("active");
+    
+                $(this).toggleClass("active");
 
-    $(".day.active").removeClass("active");
+            }
+        });
+        
+    });
+}
 
-    $(this).toggleClass("active");
-    // console.log("Active day:", activeDay); works
-});
 
 function setMonth(monthsArr, month, year){
     $('.date').text(monthsArr[month] + " " + year);
@@ -155,6 +182,8 @@ function initCalendar(year, month, monthsArr){
     $('#prev').click(function() {prevMonth(month, year, monthsArr); });
     
     $('#next').click(function() {nextMonth(month, year, monthsArr); });
+
+    clickDay(month, year, monthsArr);
 
     gotoDate(monthsArr);
 
