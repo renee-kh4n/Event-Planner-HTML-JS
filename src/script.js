@@ -46,16 +46,26 @@ function viewEvents(day, month, year){
     return event;
 }
 
-function dayListener(){
-    $(".day").each(function(){
-        this.click(function(){
-            activeDay = Number(this.text());
-            console.log(activeDay);
-        })
 
-        this.removeClass("active");
-    })
-}
+// doesn't work for dynmaically added elements
+//     $(".day").each(function(){
+//         $(this).on("click", function(){
+//             activeDay = Number($(this).text());
+//             console.log(activeDay);
+//         })
+
+//         $(this).removeClass("active");
+//     })
+
+
+$(document).on("click", ".day", function(){
+    activeDay = Number($(this).text());
+    $(".day.active").removeClass("active");
+
+    $(this).toggleClass("active");
+    // console.log("Active day:", activeDay); works
+  });
+
 
 function setMonth(monthsArr, month, year){
     $('.date').text(monthsArr[month] + " " + year);
@@ -287,7 +297,7 @@ $(document).ready(function() {
     ];
 
     addEvent();
-    dayListener();
+    // dayListener();
     initCalendar(year, month, monthsArr);
 
   });
