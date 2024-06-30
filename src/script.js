@@ -64,8 +64,18 @@ $(document).on("click", ".day", function(){
 
     $(this).toggleClass("active");
     // console.log("Active day:", activeDay); works
-  });
+});
 
+
+$(document).on("click", ".prev-date", function(){
+    $()
+    activeDay = Number($(this).text());
+
+    $(".day.active").removeClass("active");
+
+    $(this).toggleClass("active");
+    // console.log("Active day:", activeDay); works
+});
 
 function setMonth(monthsArr, month, year){
     $('.date').text(monthsArr[month] + " " + year);
