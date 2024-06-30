@@ -1,3 +1,4 @@
+//TODO: eliminate the unending initCalendar
 
 const monthsArr = [
     "January",
@@ -59,18 +60,6 @@ function viewEvents(day, month, year){
 
     return event;
 }
-
-
-// doesn't work for dynmaically added elements
-//     $(".day").each(function(){
-//         $(this).on("click", function(){
-//             
-//             console.log(activeDay);
-//         })
-
-//         $(this).removeClass("active");
-//     })
-
 
 function clickDay(month, year){
     $(document).on("click", ".day", function(){
