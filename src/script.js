@@ -337,3 +337,5 @@ function getActiveDay(date){
     eventDay.html(dayName);
     eventDate.html(date + " " + monthsArr[month] + " " + year);
 }
+
+//28:57
