@@ -64,6 +64,10 @@ function viewEvents(day, month, year){
 function clickDay(month, year){
     $(document).on("click", ".day", function(){
         
+        activeDay = $(this).text();
+
+        getActiveDay(activeDay);
+
         $(".day.active").removeClass("active");
     
         $(this).toggleClass("active");
@@ -149,6 +153,8 @@ function setDays(year, month, firstDay_day, lastDay_num, prevDays, nextDays){
     }
 
     $('.days').html(days);
+    clickDay(month, year);
+
     
 }
 
@@ -315,4 +321,19 @@ $(document).ready(function() {
 
   });
 
-  
+//show active day events and data at top
+const eventDay = $(".event-day");
+const eventDate = $(".event-date");
+
+function getActiveDay(date){
+    
+    const monthString = $(".date").text().split(" ")[0];
+    const month = monthsArr.indexOf(monthString);
+
+    const year = $(".date").text().split(" ")[1]
+    const day = new Date(year, month, date);
+    const dayName = day.toString().split(" ")[0];
+
+    eventDay.html(dayName);
+    eventDate.html(date + " " + monthsArr[month] + " " + year);
+}
