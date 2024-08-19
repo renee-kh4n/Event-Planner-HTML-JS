@@ -263,3 +263,7 @@ body{
 /* timestamp: 15:42 */
 
 /* if screen h-500px or w-500px === nowrap*/
+
+.form-label{
+    @apply  text-sky-950 w-16 p-[10px];
+}
