@@ -67,7 +67,6 @@ function clickDay(month, year){
         activeDay = $(this).text();
 
         getActiveDay(activeDay);
-        showEvents(activeDay);
 
         $(".day.active").removeClass("active");
     
@@ -339,15 +338,14 @@ function getActiveDay(date){
     const day = new Date(year, month, date);
     const dayName = day.toString().split(" ")[0];
 
+    
+    showEvents(date, month, year);
     eventDay.html(dayName);
     eventDate.html(date + " " + monthsArr[month] + " " + year);
 }
 
-function showEvents(date){ //updateEvents
+function showEvents(date, month, year){ //updateEvents
     let events = "";
-    const monthString = $(".date").text().split(" ")[0];
-    const month = monthsArr.indexOf(monthString);
-    const year = $(".date").text().split(" ")[1]
 
     eventsArr.forEach( (dayEvent) => {
         
