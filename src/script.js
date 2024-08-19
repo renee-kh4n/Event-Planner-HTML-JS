@@ -67,6 +67,7 @@ function clickDay(month, year){
         activeDay = $(this).text();
 
         getActiveDay(activeDay);
+        showEvents(activeDay);
 
         $(".day.active").removeClass("active");
     
@@ -131,6 +132,10 @@ function setDays(year, month, firstDay_day, lastDay_num, prevDays, nextDays){
         let eventFound = viewEvents(i, month, year);
         
         if( i === new Date().getDate() && year === new Date().getFullYear() && month === new Date().getMonth()){
+        
+            activeDay = i;
+            getActiveDay(activeDay);
+        
             if(eventFound){
                 days += `<div class="day active today event">${i}</div>`;
             }else{
@@ -338,4 +343,43 @@ function getActiveDay(date){
     eventDate.html(date + " " + monthsArr[month] + " " + year);
 }
 
-//28:57
+function showEvents(date){ //updateEvents
+    let events = "";
+    const monthString = $(".date").text().split(" ")[0];
+    const month = monthsArr.indexOf(monthString);
+    const year = $(".date").text().split(" ")[1]
+
+    eventsArr.forEach( (dayEvent) => {
+        
+     console.log("dayEvent: " + dayEvent.day + " " + (dayEvent.month) + " " + dayEvent.year);
+        if(
+            Number(date) === Number(dayEvent.day) &&
+            Number(month + 1) === Number(dayEvent.month) &&
+            Number(year) === Number(dayEvent.year)
+        ){
+            console.log("show eventss")
+
+            dayEvent.events.forEach((event) => {
+                events += `<div class="event"><div class="title">
+            <i class="fas fa-circle"></i>
+            <h3 class="event-title">${event.title}</h3>
+          </div>
+          <div class="event-time">
+            ${event.time}
+          </div>
+        </div> 
+        </div>`;
+            });
+        };
+    } );
+
+    if(events === ''){
+        events = `<div class=no-event>
+                    <h3>No Events</h3>
+                    </div>`;
+    }
+
+    console.log(date + " " + (month+1) + " " + year);
+    console.log(events);
+    $('.events').html(events);
+}

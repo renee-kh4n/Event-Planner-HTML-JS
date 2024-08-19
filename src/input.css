@@ -172,7 +172,8 @@ body{
 }
 
 .events .event::after{
-    content: "✔";
+    /* content: "✔"; */
+    content: "";
     @apply absolute top-[50%] right-0 text-5xl items-center justify-center opacity-30
     text-sky-950 translate-y-1/2;
 
