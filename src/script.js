@@ -395,7 +395,7 @@ $('.add-event-btn').click(function() {
     if(eventTimeFrom > eventTimeTo){
         alert("Time From must be earlier that Time To!")
     }else{
-        
+
     }
 
     console.log(eventTitle);
@@ -403,3 +403,5 @@ $('.add-event-btn').click(function() {
     console.log(eventTimeTo);
 
 })
+
+// 37:xx timestamp
