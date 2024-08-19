@@ -272,42 +272,42 @@ function addEvent(){
         $(".event-name").val($(".event-name").val().slice(0, 50));
     });
 
-    // event time from input restrictions
-    $(".event-time-from").on("input", function(event){
+    // // event time from input restrictions
+    // $(".event-time-from").on("input", function(event){
         
-        this.value = this.value.replace(/[^0-9\.]/g,'');
-        if(this.value.length >= 2){
-            this.value = this.value.substring(0, 2) + ':' + this.value.substring(2);
-        }
-        if(this.value.length > 5){
-            this.value = this.value.slice(0,5);
-        }
-    })
-    $(".event-time-from").on("keydown", function(event){
-        //how to allow backspace when length == 2 ?
-        if (event.key === "Backspace" && this.value.length === 3){
-            this.value = this.value.substring(0,2);
-        }
-    });
+    //     this.value = this.value.replace(/[^0-9\.]/g,'');
+    //     if(this.value.length >= 2){
+    //         this.value = this.value.substring(0, 2) + ':' + this.value.substring(2);
+    //     }
+    //     if(this.value.length > 5){
+    //         this.value = this.value.slice(0,5);
+    //     }
+    // })
+    // $(".event-time-from").on("keydown", function(event){
+    //     //how to allow backspace when length == 2 ?
+    //     if (event.key === "Backspace" && this.value.length === 3){
+    //         this.value = this.value.substring(0,2);
+    //     }
+    // });
 
 
-    // event time to input restrictions
-    $(".event-time-to").on("input", function(event){
+    // // event time to input restrictions
+    // $(".event-time-to").on("input", function(event){
         
-        this.value = this.value.replace(/[^0-9\.]/g,'');
-        if(this.value.length >= 2){
-            this.value = this.value.substring(0, 2) + ':' + this.value.substring(2);
-        }
-        if(this.value.length > 5){
-            this.value = this.value.slice(0,5);
-        }
-    })
-    $(".event-time-to").on("keydown", function(event){
-        //how to allow backspace when length == 2 ?
-        if (event.key === "Backspace" && this.value.length === 3){
-            this.value = this.value.substring(0,2);
-        }
-    });
+    //     this.value = this.value.replace(/[^0-9\.]/g,'');
+    //     if(this.value.length >= 2){
+    //         this.value = this.value.substring(0, 2) + ':' + this.value.substring(2);
+    //     }
+    //     if(this.value.length > 5){
+    //         this.value = this.value.slice(0,5);
+    //     }
+    // })
+    // $(".event-time-to").on("keydown", function(event){
+    //     //how to allow backspace when length == 2 ?
+    //     if (event.key === "Backspace" && this.value.length === 3){
+    //         this.value = this.value.substring(0,2);
+    //     }
+    // });
 
 }
 
@@ -381,3 +381,25 @@ function showEvents(date, month, year){ //updateEvents
     console.log(events);
     $('.events').html(events);
 }
+
+$('.add-event-btn').click(function() {
+    const eventTitle = $('.event-name').val();
+    const eventTimeFrom = $('.event-time-from').val();
+    const eventTimeTo = $('.event-time-to').val();
+
+    if(!eventTitle || !eventTimeFrom || !eventTimeTo){
+        alert("Enter complete details");
+        return;
+    }
+
+    if(eventTimeFrom > eventTimeTo){
+        alert("Time From must be earlier that Time To!")
+    }else{
+        
+    }
+
+    console.log(eventTitle);
+    console.log(eventTimeFrom);
+    console.log(eventTimeTo);
+
+})
