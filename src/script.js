@@ -442,6 +442,8 @@ $('.add-event-btn').click(function() {
         })
     }
 
+    showEvents(activeDay, month, year);
+
     // remove active from add event form
 
     //clear all fields
