@@ -387,6 +387,15 @@ $('.add-event-btn').click(function() {
     const eventTimeFrom = $('.event-time-from').val();
     const eventTimeTo = $('.event-time-to').val();
 
+    const date = $('.event-date').text();
+    const activeDay = date.split(' ')[0];
+    const month = monthsArr.indexOf(date.split(' ')[1]) + 1;
+    const year = date.split(' ')[2];
+
+    console.log(activeDay);
+    console.log(month);
+    console.log(year);
+
     if(!eventTitle || !eventTimeFrom || !eventTimeTo){
         alert("Enter complete details");
         return;
@@ -402,6 +411,43 @@ $('.add-event-btn').click(function() {
     console.log(eventTimeFrom);
     console.log(eventTimeTo);
 
+    const newEvent = {
+        title: eventTitle,
+        time: eventTimeFrom + '-' + eventTimeTo,
+    };
+
+    let eventAdded = false;
+
+    //check if eventsArr is not empty
+    if(eventsArr.length > 0){
+        //check if day has an item
+        eventsArr.forEach((event) =>{
+            if(event.day === activeDay &&
+                event.month === (month+1) &&
+                event.year === year
+            ){
+               eventsArr.events.push(newEvent) ;
+               eventAdded = true;
+            }
+        })
+    }
+
+    // if event array is empty or current day has no event, create new
+    if(!eventAdded){
+        eventsArr.push({
+            day: activeDay,
+            month: month+1,
+            year: year,
+            events: [newEvent],
+        })
+    }
+
+    // remove active from add event form
+
+    //clear all fields
+    $('.event-name').text('');
+    $('.event-time-from').text('');
+    $('.event-time-to').text('');
 })
 
 // 37:xx timestamp
