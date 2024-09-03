@@ -442,14 +442,15 @@ $('.add-event-btn').click(function() {
         })
     }
 
+    //display the new event
     showEvents(activeDay, month, year);
 
-    // remove active from add event form
+    // remove active from add event form ??
 
     //clear all fields
-    $('.event-name').text('');
-    $('.event-time-from').text('');
-    $('.event-time-to').text('');
+    $('.event-name').val('');
+    $('.event-time-from').val('');
+    $('.event-time-to').val('');
 })
 
 // 37:xx timestamp
