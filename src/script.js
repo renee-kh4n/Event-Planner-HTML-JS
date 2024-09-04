@@ -1,5 +1,3 @@
-//TODO: eliminate the unending initCalendar
-
 const monthsArr = [
     "January",
     "February",
@@ -164,51 +162,98 @@ function setDays(year, month, firstDay_day, lastDay_num, prevDays, nextDays){
 
 
 
-function initCalendar(year, month){
+// function initCalendar(year, month){
+//     const firstDay_date = new Date(year, month, 1);
+//     const lastDay_date = new Date(year, month + 1, 0);
+//     const prevLastDay = new Date(year, month, 0);
+//     const prevDays = prevLastDay.getDate();
+//     const lastDay_num = lastDay_date.getDate();
+//     const firstDay_day = firstDay_date.getDay();
+//     const nextDays = 7 - lastDay_date.getDay() - 1; 
+
+//     setMonth(month, year);
+
+//     setDays(year, month, firstDay_day, lastDay_num, prevDays, nextDays);
+
+    
+//     $('#prev').click(function() {prevMonth(month, year); });
+    
+//     $('#next').click(function() {nextMonth(month, year); });
+
+//     clickDay(month, year);
+
+//     gotoDate();
+
+     
+// }
+
+// function prevMonth(month, year){
+//     month--;
+
+//     if(month<0){ // month 0 = January & month 11 = December
+//         month = 11;
+//         year--;
+//     }
+
+//     initCalendar(year, month);
+// }
+
+// function nextMonth(month, year){
+//     month++;
+//     if(month>11){ // month 0 = January & month 11 = December
+//         month = 0;
+//         year++;
+//     }
+
+//     initCalendar(year, month);
+// }
+
+//eliminate the unending initCalendar
+
+function initCalendar(year, month) {
     const firstDay_date = new Date(year, month, 1);
     const lastDay_date = new Date(year, month + 1, 0);
     const prevLastDay = new Date(year, month, 0);
     const prevDays = prevLastDay.getDate();
     const lastDay_num = lastDay_date.getDate();
     const firstDay_day = firstDay_date.getDay();
-    const nextDays = 7 - lastDay_date.getDay() - 1; 
+    const nextDays = 7 - lastDay_date.getDay() - 1;
 
     setMonth(month, year);
-
     setDays(year, month, firstDay_day, lastDay_num, prevDays, nextDays);
-
-    
-    $('#prev').click(function() {prevMonth(month, year); });
-    
-    $('#next').click(function() {nextMonth(month, year); });
-
-    clickDay(month, year);
-
-    gotoDate();
-
-     
 }
 
-function prevMonth(month, year){
-    month--;
+function changeMonth(month, year, direction) {
+    month += direction;
 
-    if(month<0){ // month 0 = January & month 11 = December
+    if (month < 0) {
         month = 11;
         year--;
-    }
-
-    initCalendar(year, month);
-}
-
-function nextMonth(month, year){
-    month++;
-    if(month>11){ // month 0 = January & month 11 = December
+    } else if (month > 11) {
         month = 0;
         year++;
     }
 
     initCalendar(year, month);
 }
+
+function setupEventListeners() {
+    $('#prev').click(() => changeMonth(currentMonth, currentYear, -1));
+    $('#next').click(() => changeMonth(currentMonth, currentYear, 1));
+    clickDay(currentMonth, currentYear);
+    gotoDate();
+}
+
+$(document).ready(function() {
+    let today = new Date();
+    currentYear = today.getFullYear();
+    currentMonth = today.getMonth();
+
+    setupEventListeners();
+    initCalendar(currentYear, currentMonth);
+});
+
+/////////////////////////
 
 function gotoDate(){
     $("#today-btn").click(function(){
@@ -463,4 +508,4 @@ $('.add-event-btn').click(function() {
     }
 })
 
-// 37:xx timestamp
+
