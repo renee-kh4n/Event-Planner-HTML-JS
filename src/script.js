@@ -424,7 +424,7 @@ function showEvents(date, month, year){ //updateEvents
     } );
 
     if(events === ''){
-        events = `<div class=no-event>
+        events = `<div class="no-event">
                     <h3>No Events</h3>
                     </div>`;
     }

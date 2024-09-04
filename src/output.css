@@ -1134,13 +1134,15 @@ body {
   pointer-events: none;
 }
 
-/* timestamp: 15:42 */
-
-/* if screen h-500px or w-500px === nowrap*/
-
 .form-label {
   width: 4rem;
   padding: 10px;
   --tw-text-opacity: 1;
   color: rgb(8 47 73 / var(--tw-text-opacity));
+}
+
+.no-event {
+  text-align: center;
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
