@@ -461,9 +461,12 @@ $('.add-event-btn').click(function() {
     console.log(eventTimeFrom);
     console.log(eventTimeTo);
 
+    const timeFrom = convertTime(eventTimeFrom);
+    const timeTo = convertTime(eventTimeTo);
+
     const newEvent = {
         title: eventTitle,
-        time: eventTimeFrom + '-' + eventTimeTo,
+        time: timeFrom + '-' + timeTo,
     };
 
     let eventAdded = false;
@@ -514,6 +517,16 @@ $('.add-event-btn').click(function() {
 
     saveEvents();
 })
+
+function convertTime(timeStr){
+    const hour = timeStr.split(':')[0];
+    const min = timeStr.split(':')[1];
+
+    const newHour = Number(hour)%12 || 12;
+    const am_pm = hour < 12 ? 'AM' : 'PM';
+
+    return `${newHour}:${min} ${am_pm}`
+}
 
 function saveEvents(){
     localStorage.setItem("events", JSON.stringify(eventsArr));
