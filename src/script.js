@@ -332,13 +332,13 @@ const eventDate = $(".event-date");
 function getActiveDay(date){
     
     const monthString = $(".date").text().split(" ")[0];
-    const month = monthsArr.indexOf(monthString);
+    const month = Number(monthsArr.indexOf(monthString));
 
     const year = $(".date").text().split(" ")[1]
     const day = new Date(year, month, date);
     const dayName = day.toString().split(" ")[0];
 
-    console.log('get active day' + date + ' ' + month + '  ' + year)
+    console.log('get active day' + date + ' ' + (month+1) + '  ' + year)
     showEvents(date, month, year);
     eventDay.html(dayName);
     eventDate.html(date + " " + monthsArr[month] + " " + year);
@@ -347,12 +347,14 @@ function getActiveDay(date){
 function showEvents(date, month, year){ //updateEvents
     let events = "";
 
+    console.log("showEvents month: " + (month+1));
+
     eventsArr.forEach( (dayEvent) => {
         
      console.log("dayEvent: " + dayEvent.day + " " + (dayEvent.month) + " " + dayEvent.year);
         if(
             Number(date) === Number(dayEvent.day) &&
-            Number(month + 1) === Number(dayEvent.month) &&
+            Number(month+1) === Number(dayEvent.month) &&
             Number(year) === Number(dayEvent.year)
         ){
             console.log("show eventss")
@@ -389,7 +391,7 @@ $('.add-event-btn').click(function() {
 
     const date = $('.event-date').text();
     const activeDay = date.split(' ')[0];
-    const month = monthsArr.indexOf(date.split(' ')[1]) + 1;
+    const month = Number(monthsArr.indexOf(date.split(' ')[1]));
     const year = date.split(' ')[2];
 
     console.log(activeDay);
@@ -421,7 +423,7 @@ $('.add-event-btn').click(function() {
         //check if day has an item
         eventsArr.forEach((event) =>{
             if(event.day === activeDay &&
-                event.month === (month+1) &&
+                event.month === (month + 1) &&
                 event.year === year
             ){
                eventsArr.events.push(newEvent) ;
@@ -434,17 +436,19 @@ $('.add-event-btn').click(function() {
     if(!eventAdded){
         eventsArr.push({
             day: Number(activeDay),
-            month: Number(month+1),
+            month: Number(month + 1),
             year: Number(year),
             events: [newEvent],
         })
     }
 
-    console.log(eventsArr);
-    }
 
+    }
+    
+    console.log(eventsArr);
     //display the new event
     showEvents(activeDay, month, year);
+
 
     // remove active from add event form ??
 
