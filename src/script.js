@@ -12,36 +12,41 @@ const monthsArr = [
     "November",
     "December"
 ];
-const eventsArr = [
-    {
-        day: 8,
-        month: 1,
-        year: 2024,
-        events:[
-            {
-                title: "My Birthday",
-                time: "12:00 AM",
-            },
-            {
-                title: "Event 2",
-                time: "11:00 AM",
-            }
 
-        ],
-    },
-    {
-        day: 31,
-        month: 1,
-        year: 2024,
-        events:[
-            {
-                title: "Papa's Birthday",
-                time: "12:00 AM",
-            },
+let eventsArr = [];
 
-        ],
-    },
-];
+getEvents();
+
+// const eventsArr = [
+//     {
+//         day: 8,
+//         month: 1,
+//         year: 2024,
+//         events:[
+//             {
+//                 title: "My Birthday",
+//                 time: "12:00 AM",
+//             },
+//             {
+//                 title: "Event 2",
+//                 time: "11:00 AM",
+//             }
+
+//         ],
+//     },
+//     {
+//         day: 31,
+//         month: 1,
+//         year: 2024,
+//         events:[
+//             {
+//                 title: "Papa's Birthday",
+//                 time: "12:00 AM",
+//             },
+
+//         ],
+//     },
+// ];
 
 function viewEvents(day, month, year){
     let event = false;
@@ -506,6 +511,21 @@ $('.add-event-btn').click(function() {
     if(!$('.day.active').hasClass('event')){
         $('.day.active').addClass('event') ;
     }
+
+    saveEvents();
 })
 
+function saveEvents(){
+    localStorage.setItem("events", JSON.stringify(eventsArr));
+}
 
+function getEvents(){
+    if(localStorage.getItem("events")===null){
+        return;
+    }
+
+    eventsArr.push(...JSON.parse(localStorage.getItem("events")));
+}
+
+
+//TODO: allow event deletion
