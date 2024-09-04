@@ -338,7 +338,7 @@ function getActiveDay(date){
     const day = new Date(year, month, date);
     const dayName = day.toString().split(" ")[0];
 
-    
+    console.log('get active day' + date + ' ' + month + '  ' + year)
     showEvents(date, month, year);
     eventDay.html(dayName);
     eventDate.html(date + " " + monthsArr[month] + " " + year);
@@ -405,8 +405,6 @@ $('.add-event-btn').click(function() {
         alert("Time From must be earlier that Time To!")
     }else{
 
-    }
-
     console.log(eventTitle);
     console.log(eventTimeFrom);
     console.log(eventTimeTo);
@@ -435,11 +433,14 @@ $('.add-event-btn').click(function() {
     // if event array is empty or current day has no event, create new
     if(!eventAdded){
         eventsArr.push({
-            day: activeDay,
-            month: month+1,
-            year: year,
+            day: Number(activeDay),
+            month: Number(month+1),
+            year: Number(year),
             events: [newEvent],
         })
+    }
+
+    console.log(eventsArr);
     }
 
     //display the new event
@@ -451,6 +452,11 @@ $('.add-event-btn').click(function() {
     $('.event-name').val('');
     $('.event-time-from').val('');
     $('.event-time-to').val('');
+
+    //add event class to newly added day if not already
+    if(!$('.day.active').hasClass('event')){
+        $('.day.active').addClass('event') ;
+    }
 })
 
 // 37:xx timestamp
